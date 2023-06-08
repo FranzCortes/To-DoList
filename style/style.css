@@ -1,0 +1,132 @@
+body{
+    background: rgba(0, 68, 255, 0.596) !important;
+}
+
+.title{
+    text-align: center;
+    margin: 20px;
+    font-weight: bold !important;
+    font-family: 'Courier New', Courier, monospace !important;
+}
+
+/* Contenedor de agregar Item */
+.container-form{
+    float:left;
+    width: 40%;
+    height: 600px;
+    padding: 20px;
+    margin-left:90px;
+    background-color: #fff;
+    border-radius: 10px;
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.containerAddItem label, input, button{
+   margin: 5px 0 !important;
+}
+
+.containerAddItem label{
+    font-weight: bold;
+}
+
+.containerAddItem .buttonAdd{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-listItem{
+    margin-top: 10px;
+    overflow: auto;
+}
+
+.container-listItem table {
+    width: 100%;
+    border: 2px solid #000000;
+    table-layout: fixed;
+}
+  
+.container-listItem td {
+    padding: 10px;
+    border: 1px solid #000000;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    text-align: justify;
+}
+
+.container-listItem .tableIndex{
+    width: 50px;
+}
+  
+.container-listItem .btn-cell {
+    width: 100px;
+}
+
+
+
+/* Contenedor de busqueda */
+.container-list{
+    float:right;
+    width: 40%;
+    height:600px;
+    padding: 20px;
+    margin-right:90px;
+    background-color: #fff;
+    border-radius: 10px;
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.container-list label, input, button{
+    margin: 5px 0 !important;
+}
+
+.container-list label{
+    font-weight: bold;
+}
+
+.container-list .button-search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:15px auto;
+}
+
+.button-search button{
+    margin: auto 5px !important;
+}
+
+.container-listQuery{
+    margin-top: 10px;
+    overflow: auto;
+}
+
+.container-listQuery p{
+    color:hsla(0, 0%, 0%, 0.5) !important;
+    text-align: center;
+}
+
+.container-listQuery table {
+    width: 100%;
+    border: 2px solid #000000;
+    table-layout: fixed;
+}
+  
+.container-listQuery  td {
+    padding: 10px;
+    border: 1px solid #000000;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    text-align: justify;
+}
+
+.container-listQuery .tableIndex{
+    width: 50px;
+}
+
+.container-listQuery .btn-cell{
+    width: 100px;
+}
+
+

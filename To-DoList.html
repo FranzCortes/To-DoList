@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- style css -->
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/responsive.css">
+
+    <!-- Usando VueJs desde CDN  -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- Usando Bootstrap desde CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <title>To-DoList</title>
+</head>
+<body>
+    <div id="app">
+      <h1 class="title">{{ title }}</h1>
+      <div class="container-form">
+        
+        <!-- Formulario para agregar item -->
+        <div class="containerAddItem">
+          <form @submit.prevent="addListItem" method="post" action="/form" autocomplete="off">
+            <label for="add">Agregar Item:</label>
+            <input type="text" v-model="newItems" class="form-control" id="add" name="add">
+            <div class="buttonAdd">
+              <button class="btn btn-primary">Agregar</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Lista de item -->
+        <div class="container-listItem">
+          <table>
+            <tbody>
+              <tr v-for="(toDoLists, index) in toDoList" :key="index">
+                <td class="tableIndex"><span>{{index + 1}}</span></td>
+                <td>{{toDoLists}}</td>
+                <td class="btn-cell"><button class="btn btn-danger" @click="deleteItem(index)">Eliminar</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>        
+      </div>
+      
+      <!-- Buscardor item -->
+      <div class="container-list">
+        <div class="container-searchItem">
+          <label for="search">Buscar item:</label>
+          <input type="text" v-model="queryItem" @keypress.enter="serchItem" class="form-control" id="search" name="search">
+          <div class="button-search">
+            <button class="btn btn-primary" @click="serchItem">Buscar</button>
+            <button class="btn btn-danger" @click="deleteFull">Eliminar todo</button>
+          </div>
+        </div>
+
+        <!-- Resultado de busqueda -->
+        <div class="container-listQuery">
+          <table v-if="result.length > 0">
+            <tbody>
+              <tr :key="index" v-for="(results, index) in result">
+                <td class="tableIndex">
+                  <span>
+                    {{index + 1}}
+                  </span>
+                </td>
+                <td>{{ results }}</td>
+                <td class="btn-cell"><button class="btn btn-danger" @click="deleteItem(index)">Eliminar</button></td>
+              </tr>
+            </tbody>
+          </table>
+          <p v-else> No se encontro resultado de busqueda </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
